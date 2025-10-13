@@ -1,48 +1,27 @@
-package com.udea.horsePedigree.entity;
+package com.udea.horsePedigree.DTO;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
 
-import java.util.Date;
-
-@Entity
-@Table(name="Usuario")
-public class Usuario {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+public class UsuarioDTO {
     private Long idUsuario;
 
-    @Column(nullable=false, length=50)
     private String nombre;
 
-    @Column(nullable=false, length=50)
     private String apellido;
 
-    @Column(unique=true, length=50, nullable=false)
     private String username;
 
-    @Column(nullable=false, length=50)
     private String password;
 
-    /*@Column(nullable=false, length=10)
-    private String idRol;*/
+    /*private String idRol;*/
 
-    @Column(nullable=false, length=50)
     private String email;
 
-    /*@Column(nullable=false, length=50)
-    private Date fechaDeCreacion*/
+    /*private Date fechaDeCreacion*/
 
-    public Usuario() {}
+    public UsuarioDTO() {}
 
-    @JsonCreator
-    public Usuario(@JsonProperty("idUsuario") Long idUsuario,
-                   @JsonProperty("nombre") String nombre,
-                   @JsonProperty("apellido") String apellido,
-                   @JsonProperty("username") String username,
-                   @JsonProperty("password") String password,
-                   @JsonProperty("email") String email) {
+    public UsuarioDTO(Long idUsuario, String nombre, String apellido, String username, String password, String email) {
         this.idUsuario = idUsuario;
         this.nombre = nombre;
         this.apellido = apellido;

@@ -1,38 +1,23 @@
-package com.udea.horsePedigree.entity;
+package com.udea.horsePedigree.DTO;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
 
-@Entity
-@Table(name="ArbolGenealogico")
-public class ArbolGenealogico {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+public class ArbolGenealogicoDTO {
     private int idArbol;
 
-    @Column(nullable=false, length=50)
     private int idPadre;
 
-    @Column(nullable=false, length=50)
     private int idMadre;
 
-    @Column(nullable=false, length=50)
     private int idAbuelo;
 
-    @Column(nullable=false, length=50)
     private int idAbuela;
 
-    @Column(length=1000)
     private String observacion;
 
-    public ArbolGenealogico() {}
+    public ArbolGenealogicoDTO() {}
 
-    public ArbolGenealogico(@JsonProperty("idArbol") int idArbol,
-                            @JsonProperty("idPadre") int idPadre,
-                            @JsonProperty("idMadre") int idMadre,
-                            @JsonProperty("idAbuelo") int idAbuelo,
-                            @JsonProperty("idAbuela") int idAbuela,
-                            @JsonProperty("observacion") String observacion) {
+    public ArbolGenealogicoDTO(int idArbol, int idPadre, int idMadre, int idAbuelo, int idAbuela, String observacion) {
         this.idArbol = idArbol;
         this.idPadre = idPadre;
         this.idMadre = idMadre;
