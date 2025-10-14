@@ -1,18 +1,25 @@
 package com.udea.horsePedigree.service;
 
-import com.udea.horsePedigree.entity.ArbolGenealogico;
+import com.udea.horsePedigree.DTO.CampeonatoDTO;
 import com.udea.horsePedigree.entity.Campeonato;
-import com.udea.horsePedigree.repository.ArbolGenealogicoRepository;
+import com.udea.horsePedigree.mapper.CampeonatoMapper;
 import com.udea.horsePedigree.repository.CampeonatoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class CampeonatoService {
-    @Autowired
-    private CampeonatoRepository campeonatoRepository;
+    private final CampeonatoRepository campeonatoRepository;
+    private final CampeonatoMapper campeonatoMapper;
 
-    public Campeonato guardarCampeonato(Campeonato campeonato){
+    @Autowired
+    public CampeonatoService(CampeonatoRepository campeonatoRepository, CampeonatoMapper campeonatoMapper) {
+        this.campeonatoRepository = campeonatoRepository;
+        this.campeonatoMapper = campeonatoMapper;
+    }
+
+    public Campeonato crearCampeonato(CampeonatoDTO campeonatoDTO) {
+        Campeonato campeonato = campeonatoMapper.toEntity(campeonatoDTO);
         return campeonatoRepository.save(campeonato);
     }
 }
