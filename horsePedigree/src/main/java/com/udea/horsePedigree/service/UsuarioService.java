@@ -18,8 +18,8 @@ public class UsuarioService {
         this.usuarioMapper = usuarioMapper;
     }
 
-    public Usuario crearUsuario(UsuarioDTO usuarioDTO) {
+    public UsuarioDTO crearUsuario(UsuarioDTO usuarioDTO) {
         Usuario usuario = usuarioMapper.toEntity(usuarioDTO);
-        return usuarioRepository.save(usuario);
+        return usuarioMapper.toDTO(usuarioRepository.save(usuario));
     }
 }

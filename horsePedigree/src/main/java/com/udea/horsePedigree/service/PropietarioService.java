@@ -19,8 +19,8 @@ public class PropietarioService {
         this.propietarioMapper = propietarioMapper;
     }
 
-    public Propietario crearPropietario(PropietarioDTO propietarioDTO) {
+    public PropietarioDTO crearPropietario(PropietarioDTO propietarioDTO) {
         Propietario propietario = propietarioMapper.toEntity(propietarioDTO);
-        return propietarioRepository.save(propietario);
+        return propietarioMapper.toDTO(propietarioRepository.save(propietario));
     }
 }

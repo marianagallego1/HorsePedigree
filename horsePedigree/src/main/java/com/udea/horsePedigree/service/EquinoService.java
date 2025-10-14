@@ -18,8 +18,8 @@ public class EquinoService {
         this.equinoMapper = equinoMapper;
     }
 
-    public Equino crearEquino(EquinoDTO equinoDTO) {
+    public EquinoDTO crearEquino(EquinoDTO equinoDTO) {
         Equino equino = equinoMapper.toEntity(equinoDTO);
-        return equinoRepository.save(equino);
+        return equinoMapper.toDTO(equinoRepository.save(equino));
     }
 }

@@ -18,8 +18,8 @@ public class Equino_CampeonatoService {
         this.equino_CampeonatoMapper = equino_CampeonatoMapper;
     }
 
-    public Equino_Campeonato crearEquino_Campeonato(Equino_CampeonatoDTO equino_CampeonatoDTO) {
+    public Equino_CampeonatoDTO crearEquino_Campeonato(Equino_CampeonatoDTO equino_CampeonatoDTO) {
         Equino_Campeonato equino_Campeonato = equino_CampeonatoMapper.toEntity(equino_CampeonatoDTO);
-        return equino_CampeonatoRepository.save(equino_Campeonato);
+        return equino_CampeonatoMapper.toDTO(equino_CampeonatoRepository.save(equino_Campeonato));
     }
 }

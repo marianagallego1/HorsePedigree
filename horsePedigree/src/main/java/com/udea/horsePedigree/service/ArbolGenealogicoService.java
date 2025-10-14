@@ -18,8 +18,8 @@ public class ArbolGenealogicoService {
         this.arbolGenealogicoMapper = arbolGenealogicoMapper;
     }
 
-    public ArbolGenealogico crearArbolGenealogico(ArbolGenealogicoDTO arbolGenealogicoDTO) {
+    public ArbolGenealogicoDTO crearArbolGenealogico(ArbolGenealogicoDTO arbolGenealogicoDTO) {
         ArbolGenealogico arbolGenealogico = arbolGenealogicoMapper.toEntity(arbolGenealogicoDTO);
-        return arbolGenealogicoRepository.save(arbolGenealogico);
+        return arbolGenealogicoMapper.toDTO(arbolGenealogicoRepository.save(arbolGenealogico));
     }
 }

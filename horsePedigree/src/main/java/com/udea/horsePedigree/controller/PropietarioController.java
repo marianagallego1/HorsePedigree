@@ -19,7 +19,7 @@ public class PropietarioController {
     }
 
     @PostMapping
-    public ResponseEntity<PropietarioDTO> guardarPropietario(@RequestBody PropietarioDTO propietarioDTO){
-        return ResponseEntity.ok(propietarioService.guardarPropietario(propietarioDTO));
+    public ResponseEntity<PropietarioDTO> crearPropietario(@RequestBody PropietarioDTO propietarioDTO){
+        return ResponseEntity.ok(propietarioService.crearPropietario(propietarioDTO));
     }
 }

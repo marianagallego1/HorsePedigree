@@ -18,8 +18,8 @@ public class CampeonatoService {
         this.campeonatoMapper = campeonatoMapper;
     }
 
-    public Campeonato crearCampeonato(CampeonatoDTO campeonatoDTO) {
+    public CampeonatoDTO crearCampeonato(CampeonatoDTO campeonatoDTO) {
         Campeonato campeonato = campeonatoMapper.toEntity(campeonatoDTO);
-        return campeonatoRepository.save(campeonato);
+        return campeonatoMapper.toDTO(campeonatoRepository.save(campeonato));
     }
 }
