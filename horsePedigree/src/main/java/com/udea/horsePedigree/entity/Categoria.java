@@ -5,14 +5,18 @@ import jakarta.persistence.*;
 @Entity
 @Table(name="Categoria")
 public class Categoria {
+
+    // Propiedades
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(nullable=false, length=50)
     private int idCategoria;
 
     @Column(nullable=false, length=50)
     private String nombreCategoria;
 
-    public Categoria() {}
+
+    // Getters y Setters
+    /*public Categoria() {}
 
     public int getIdCategoria() {
         return idCategoria;
@@ -28,5 +32,5 @@ public class Categoria {
 
     public void setNombreCategoria(String nombreCategoria) {
         this.nombreCategoria = nombreCategoria;
-    }
+    }*/
 }

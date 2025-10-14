@@ -5,18 +5,18 @@ import jakarta.persistence.*;
 @Entity
 @Table(name="TipoDePaso")
 public class TipoDePaso {
+
+
+    // Propiedades
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int TipoDePaso;
-
     @Column(nullable=false, length=10)
-    private String tipo;
+    private String idTipoDePaso;
 
-    @Column(nullable=false, length=10)
+    @Column(nullable=false, length=50)
     private String descripcion;
 
 
-    public TipoDePaso() {}
+    /*public TipoDePaso() {}
 
     public int getTipoDePaso() {
         return TipoDePaso;
@@ -40,5 +40,5 @@ public class TipoDePaso {
 
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
-    }
+    }*/
 }

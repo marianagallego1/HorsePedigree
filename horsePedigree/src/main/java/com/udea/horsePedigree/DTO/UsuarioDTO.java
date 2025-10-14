@@ -1,6 +1,7 @@
 package com.udea.horsePedigree.DTO;
 
-import jakarta.persistence.Column;
+
+import com.udea.horsePedigree.entity.Rol;
 
 public class UsuarioDTO {
     private Long idUsuario;
@@ -13,22 +14,28 @@ public class UsuarioDTO {
 
     private String password;
 
-    /*private String idRol;*/
+    private Rol idRol;
 
     private String email;
 
     /*private Date fechaDeCreacion*/
 
+
+    // Constructores
     public UsuarioDTO() {}
 
-    public UsuarioDTO(Long idUsuario, String nombre, String apellido, String username, String password, String email) {
+    public UsuarioDTO(Long idUsuario, String nombre, String apellido, String username, String password, Rol idRol, String email) {
         this.idUsuario = idUsuario;
         this.nombre = nombre;
         this.apellido = apellido;
         this.username = username;
         this.password = password;
+        this.idRol = idRol;
         this.email = email;
     }
+
+
+    // Getters y setters
 
     public Long getIdUsuario() {
         return idUsuario;
@@ -68,6 +75,14 @@ public class UsuarioDTO {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public Rol getIdRol() {
+        return idRol;
+    }
+
+    public void setIdRol(Rol idRol) {
+        this.idRol = idRol;
     }
 
     public String getEmail() {

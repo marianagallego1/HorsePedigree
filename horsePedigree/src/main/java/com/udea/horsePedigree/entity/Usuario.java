@@ -3,12 +3,17 @@ package com.udea.horsePedigree.entity;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 
 import java.util.Date;
 
 @Entity
 @Table(name="Usuario")
+@NoArgsConstructor
 public class Usuario {
+
+    // Propiedades
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long idUsuario;
@@ -25,8 +30,9 @@ public class Usuario {
     @Column(nullable=false, length=50)
     private String password;
 
-    /*@Column(nullable=false, length=10)
-    private String idRol;*/
+    @ManyToOne
+    @JoinColumn(name = "idRol", nullable = false)
+    private Rol idRol;
 
     @Column(nullable=false, length=50)
     private String email;
@@ -34,22 +40,33 @@ public class Usuario {
     /*@Column(nullable=false, length=50)
     private Date fechaDeCreacion*/
 
-    public Usuario() {}
 
+    // Constructor
     @JsonCreator
     public Usuario(@JsonProperty("idUsuario") Long idUsuario,
                    @JsonProperty("nombre") String nombre,
                    @JsonProperty("apellido") String apellido,
                    @JsonProperty("username") String username,
                    @JsonProperty("password") String password,
+                   @JsonProperty("idRol") Rol idRol,
                    @JsonProperty("email") String email) {
         this.idUsuario = idUsuario;
         this.nombre = nombre;
         this.apellido = apellido;
         this.username = username;
         this.password = password;
+        this.idRol = idRol;
         this.email = email;
     }
+
+
+    // Relación con Rol
+    /*@ManyToOne
+    @JoinColumn(name = "idRol", nullable = false)
+    private Rol rol;*/
+
+
+    // Getters y setters
 
     public Long getIdUsuario() {
         return idUsuario;
@@ -89,6 +106,14 @@ public class Usuario {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public Rol getIdRol() {
+        return idRol;
+    }
+
+    public void setIdRol(Rol idRol) {
+        this.idRol = idRol;
     }
 
     public String getEmail() {

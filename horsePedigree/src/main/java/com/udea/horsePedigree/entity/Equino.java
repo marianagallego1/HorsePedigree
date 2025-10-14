@@ -35,7 +35,7 @@ public class Equino {
     @Column(nullable=false, length=50)
     private String idPropietario;*/
 
-    @Column(nullable=false, length=1000)
+    @Column(length=1000)
     private String observacion;
 
     /*@Column(nullable=false, length=50)
