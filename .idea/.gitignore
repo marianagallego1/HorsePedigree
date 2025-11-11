@@ -1,0 +1,43 @@
+# Default ignored files
+/shelf/
+/workspace.xml
+
+# ================================
+# IntelliJ IDEA
+# ================================
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# ================================
+# Maven / Spring Boot
+# ================================
+target/
+logs/
+*.log
+
+# Ignorar archivos temporales
+*.class
+*.jar
+*.war
+*.ear
+*.db
+
+# ================================
+# Sistema operativo
+# ================================
+.DS_Store
+Thumbs.db
+
+# ================================
+# Node / Frontend
+# ================================
+node_modules/
+dist/
+build/
+
+# ================================
+# Archivos personales
+# ================================
+*.env

@@ -1,4 +1,4 @@
-package com.udea.horsePedigree;
+    package com.udea.horsePedigree;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

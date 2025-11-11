@@ -22,4 +22,10 @@ public class EquinoService {
         Equino equino = equinoMapper.toEntity(equinoDTO);
         return equinoMapper.toDTO(equinoRepository.save(equino));
     }
+    public EquinoDTO obtenerEquinoPorId(int id) {
+        return equinoRepository.findById(id)
+                .map(equinoMapper::toDTO)
+                .orElse(null);
+    }
+
 }
