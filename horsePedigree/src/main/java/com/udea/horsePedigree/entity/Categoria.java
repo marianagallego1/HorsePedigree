@@ -1,36 +1,20 @@
 package com.udea.horsePedigree.entity;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
-@Table(name="Categoria")
+@Table(name = "categoria")
+@Getter
+@Setter
 public class Categoria {
 
-    // Propiedades
     @Id
-    @Column(nullable=false, length=50)
-    private int idCategoria;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_categoria")
+    private Integer idCategoria;
 
-    @Column(nullable=false, length=50)
+    @Column(name = "nombre_categoria", nullable = false, length = 50)
     private String nombreCategoria;
-
-
-    // Getters y Setters
-    /*public Categoria() {}
-
-    public int getIdCategoria() {
-        return idCategoria;
-    }
-
-    public void setIdCategoria(int idCategoria) {
-        this.idCategoria = idCategoria;
-    }
-
-    public String getNombreCategoria() {
-        return nombreCategoria;
-    }
-
-    public void setNombreCategoria(String nombreCategoria) {
-        this.nombreCategoria = nombreCategoria;
-    }*/
 }

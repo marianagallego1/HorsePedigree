@@ -1,91 +1,46 @@
 package com.udea.horsePedigree.entity;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
-@Table(name="ArbolGenealogico")
+@Table(name = "arbol_genealogico")
+@Getter
+@Setter
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class ArbolGenealogico {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_arbol")
     private int idArbol;
 
-    @Column(nullable=false, length=50)
-    private int idPadre;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_padre")
+    private Equino padre;
 
-    @Column(nullable=false, length=50)
-    private int idMadre;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_madre")
+    private Equino madre;
 
-    @Column(nullable=false, length=50)
-    private int idAbuelo;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_abuelo_paterno")
+    private Equino abueloPaterno;
 
-    @Column(nullable=false, length=50)
-    private int idAbuela;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_abuela_paterna")
+    private Equino abuelaPaterna;
 
-    @Column(length=1000)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_abuelo_materno")
+    private Equino abueloMaterno;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_abuela_materna")
+    private Equino abuelaMaterna;
+
+    @Column(length = 1000)
     private String observacion;
-
-    public ArbolGenealogico() {}
-
-    public ArbolGenealogico(@JsonProperty("idArbol") int idArbol,
-                            @JsonProperty("idPadre") int idPadre,
-                            @JsonProperty("idMadre") int idMadre,
-                            @JsonProperty("idAbuelo") int idAbuelo,
-                            @JsonProperty("idAbuela") int idAbuela,
-                            @JsonProperty("observacion") String observacion) {
-        this.idArbol = idArbol;
-        this.idPadre = idPadre;
-        this.idMadre = idMadre;
-        this.idAbuelo = idAbuelo;
-        this.idAbuela = idAbuela;
-        this.observacion = observacion;
-    }
-
-    public int getIdArbol() {
-        return idArbol;
-    }
-
-    public void setIdArbol(int idArbol) {
-        this.idArbol = idArbol;
-    }
-
-    public int getIdPadre() {
-        return idPadre;
-    }
-
-    public void setIdPadre(int idPadre) {
-        this.idPadre = idPadre;
-    }
-
-    public int getIdMadre() {
-        return idMadre;
-    }
-
-    public void setIdMadre(int idMadre) {
-        this.idMadre = idMadre;
-    }
-
-    public int getIdAbuelo() {
-        return idAbuelo;
-    }
-
-    public void setIdAbuelo(int idAbuelo) {
-        this.idAbuelo = idAbuelo;
-    }
-
-    public int getIdAbuela() {
-        return idAbuela;
-    }
-
-    public void setIdAbuela(int idAbuela) {
-        this.idAbuela = idAbuela;
-    }
-
-    public String getObservacion() {
-        return observacion;
-    }
-
-    public void setObservacion(String observacion) {
-        this.observacion = observacion;
-    }
 }

@@ -1,44 +1,19 @@
 package com.udea.horsePedigree.entity;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
-@Table(name="TipoDePaso")
+@Table(name = "tipo_de_paso")
+@Getter
+@Setter
 public class TipoDePaso {
 
-
-    // Propiedades
     @Id
-    @Column(nullable=false, length=10)
+    @Column(name = "id_tipo_de_paso", nullable = false, length = 10)
     private String idTipoDePaso;
 
-    @Column(nullable=false, length=50)
+    @Column(nullable = false, length = 50)
     private String descripcion;
-
-
-    /*public TipoDePaso() {}
-
-    public int getTipoDePaso() {
-        return TipoDePaso;
-    }
-
-    public void setTipoDePaso(int tipoDePaso) {
-        TipoDePaso = tipoDePaso;
-    }
-
-    public String getTipo() {
-        return tipo;
-    }
-
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
-    }
-
-    public String getDescripcion() {
-        return descripcion;
-    }
-
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
-    }*/
 }
