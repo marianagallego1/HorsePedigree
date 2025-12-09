@@ -13,19 +13,19 @@ public class EquinoCampeonato {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "equino_campeonato")
-    private Integer id;
+    private Integer idEquinoCampeonato ;
 
     @ManyToOne
     @JoinColumn(name = "id_equino", nullable = false)
-    private Equino equino;
+    private Equino Equino;
 
     @ManyToOne
     @JoinColumn(name = "id_categoria", nullable = false)
-    private Categoria categoria;
+    private Categoria Categoria;
 
     @ManyToOne
     @JoinColumn(name = "id_campeonato", nullable = false)
-    private Campeonato campeonato;
+    private Campeonato Campeonato;
 
     @Column(nullable = false)
     private int puntaje;

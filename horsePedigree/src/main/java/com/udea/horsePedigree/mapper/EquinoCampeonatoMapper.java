@@ -11,7 +11,7 @@ public interface EquinoCampeonatoMapper {
     @Mapping(source = "equino.idEquino", target = "idEquino")
     @Mapping(source = "categoria.idCategoria", target = "idCategoria")
     @Mapping(source = "campeonato.idCampeonato", target = "idCampeonato")
-    EquinoCampeonatoDTO toDTO(EquinoCampeonato entity);
+    EquinoCampeonatoDTO toDTO(EquinoCampeonato equinoCampeonato);
 
     // El service se encarga de llenar las relaciones.
     EquinoCampeonato toEntity(EquinoCampeonatoDTO dto);

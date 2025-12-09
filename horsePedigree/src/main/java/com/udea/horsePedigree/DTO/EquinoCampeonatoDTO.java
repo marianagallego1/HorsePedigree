@@ -7,7 +7,7 @@ import lombok.Setter;
 @Setter
 public class EquinoCampeonatoDTO {
 
-    private Integer id;
+    private Integer idEquinoCampeonato;
     private Integer idEquino;
     private Integer idCategoria;
     private Integer idCampeonato;

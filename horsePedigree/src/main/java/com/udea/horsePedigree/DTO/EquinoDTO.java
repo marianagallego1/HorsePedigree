@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 @Data
 public class EquinoDTO {
 
-    private int idEquino;
+    private Integer idEquino;
 
     private String nombre;
     private String apellido;

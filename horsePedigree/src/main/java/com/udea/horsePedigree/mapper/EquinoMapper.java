@@ -13,5 +13,6 @@ public interface EquinoMapper {
     @Mapping(source = "arbolGenealogico.idArbol", target = "idArbolGenealogico")
     EquinoDTO toDTO(Equino equino);
 
+    @Mapping(target = "idEquino", ignore = true)
     Equino toEntity(EquinoDTO dto);
 }
